@@ -31,7 +31,8 @@ projectItems.forEach((projectItems) => {
 
   const urlA = document.createElement("a");
   urlA.classList.add("accordion-url");
-  urlA.href = "_blank";
+  urlA.href = urlText;
+  urlA.setAttribute("target", "_blank");
   urlA.textContent = urlText;
   projectDiv.appendChild(urlA);
 
