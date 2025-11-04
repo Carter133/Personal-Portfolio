@@ -41,6 +41,11 @@ projectItems.forEach((projectItems) => {
   descriptionDiv.textContent = descriptionText;
   projectDiv.appendChild(descriptionDiv);
 
+  projectDiv.addEventListener("click", () => {
+    titleDiv.classList.toggle("active");
+    urlA.classList.toggle("active");
+    descriptionDiv.classList.toggle("active");
+  });
+
   accordionDiv.appendChild(projectDiv);
 });
-console.log("hello");
