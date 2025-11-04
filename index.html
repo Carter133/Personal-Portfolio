@@ -3,23 +3,33 @@
 <html lang="en">
 
 <head>
+    <script src="https://kit.fontawesome.com/e76daa22e6.js" crossorigin="anonymous"></script>
     <title>Carter Hamblin's Portfolio</title>
     <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <header>Carter's Portfolio</header>
-    <main class="landing">
-        <section class="socials">
+    <main id="landing">
+        <section id="socials">
             <h2>Socials</h2>
             <ul>
-                <li><a href="https://www.linkedin.com/in/carter-hamblin-00534634a">LinkedIn</a></li>
-                <li><a href="https://github.com/Carter133">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/carter-hamblin-00534634a"><i
+                            class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+                <li><a href="https://github.com/Carter133"><i class="fa-brands fa-github fa-2xl"></i></a></li>
             </ul>
         </section>
-        <section class="bio">
-            <h2>Bio</h2>
-            <img src="images/IMG_0086.JPG" alt="Face" width="204px" height="251px">
+        <section id="bio">
+            <h1>Bio</h1>
+            <div class="face">
+                <img src="images/IMG_0086.JPG" alt="Face" width="204px" height="251px">
+            </div>
             <p>Hi I'm Carter I was formerly a mechanic but I recently realized I wanted more for my future self and
                 family than that would be able to provide, and have always been interested in coding and software
                 development. This
@@ -33,14 +43,14 @@
                 them make a smarter and better person.
             </p>
         </section>
-        <section class="projects">
-            <h2>Projects</h2>
+        <section id="projects">
+            <h1>Projects</h1>
             <div id="accordion">
 
             </div>
         </section>
-        <section class="contact">
-            <h2>Reach Out</h2>
+        <section id="contact">
+            <h1>Reach Out</h1>
             <form method="POST">
                 <div class="input-row">
                     <div class="input-group">

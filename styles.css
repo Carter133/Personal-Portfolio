@@ -1,0 +1,56 @@
+body {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+  background: #3b3b3b;
+  color: #add8e6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  color: #add8e6;
+  font-size: 35px;
+}
+
+header {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  top: 0;
+  z-index: 10;
+  justify-content: center;
+  display: flex;
+  font-size: 50px;
+  color: #add8e6;
+}
+
+.fa-brands {
+  width: 25px;
+  height: 25px;
+  color: #add8e6;
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-brands:hover {
+  color: #cbc3e3;
+}
+
+#bio p {
+  text-align: center;
+  margin: center;
+  display: flex;
+  font-size: 1rem;
+}
+
+.face img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
