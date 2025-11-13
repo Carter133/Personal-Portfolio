@@ -86,14 +86,22 @@ class TestimonialDao {
       comment: faker.lorem.sentence(),
       name: faker.person.fullName(),
       email: faker.internet.email(),
-      rating: faker.number.int(),
+      rating: faker.number.int({ min: 0, max: 10 }),
       company: faker.company.name(),
     },
     {
       comment: faker.lorem.sentence(),
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      rating: faker.number.int({ min: 0, max: 10 }),
+      company: faker.company.name(),
     },
     {
       comment: faker.lorem.sentence(),
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      rating: faker.number.int({ min: 0, max: 10 }),
+      company: faker.company.name(),
     },
   ];
   getAll() {
@@ -124,6 +132,29 @@ class SessionStorageTestimonialDao extends TestimonialDao {
   }
 }
 
+class CookieStorageTestimonialDao extends TestimonialDao {
+  getAll() {
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("testimonials"))
+      ?.split("=")[1];
+
+    const testimonialsData = cookieValue
+      ? JSON.parse(cookieValue)
+      : TestimonialDao.seeds;
+    return testimonialsData.map(
+      (testimonialData) => new Testimonial(testimonialData),
+    );
+  }
+  create(testimonial) {
+    const testimonials = this.getAll();
+    testimonials.push(testimonial);
+    console.log(testimonials);
+    document.cookie = `testimonials=${JSON.stringify(testimonials)}`;
+    console.log(document.cookie);
+  }
+}
+
 class CreateTestimonial {
   constructor(testimonialDao) {
     this.testimonialDao = testimonialDao;
@@ -141,9 +172,11 @@ class CreateTestimonial {
   }
 }
 
-const testimonialDao = new SessionStorageTestimonialDao();
+// const testimonialDao = new SessionStorageTestimonialDao();
+const testimonialDao = new CookieStorageTestimonialDao();
 const createTestimonial = new CreateTestimonial(testimonialDao);
 
+let sumOfRatings = 0;
 const testimonialList = document.getElementById("testimonial-list");
 const testimonials = testimonialDao.getAll();
 for (let i = 0; i < testimonials.length; i++) {
@@ -151,7 +184,13 @@ for (let i = 0; i < testimonials.length; i++) {
   const testimonialLi = document.createElement("li");
   testimonialLi.textContent = testimonial.toString();
   testimonialList.appendChild(testimonialLi);
+  sumOfRatings += Number(testimonial.rating);
+  console.log(sumOfRatings);
 }
+const averageRating = sumOfRatings / testimonials.length;
+const averageRatingH3 = document.querySelector("h3");
+console.log(testimonials.length);
+averageRatingH3.innerText += `: ${averageRating}`;
 
 const createTestimonialForm = document.querySelector("#testimonial form");
 createTestimonialForm.addEventListener("submit", (event) => {
