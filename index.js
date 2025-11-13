@@ -151,7 +151,6 @@ class CookieStorageTestimonialDao extends TestimonialDao {
     testimonials.push(testimonial);
     console.log(testimonials);
     document.cookie = `testimonials=${JSON.stringify(testimonials)}`;
-    console.log(document.cookie);
   }
 }
 
@@ -185,11 +184,9 @@ for (let i = 0; i < testimonials.length; i++) {
   testimonialLi.textContent = testimonial.toString();
   testimonialList.appendChild(testimonialLi);
   sumOfRatings += Number(testimonial.rating);
-  console.log(sumOfRatings);
 }
 const averageRating = sumOfRatings / testimonials.length;
 const averageRatingH3 = document.querySelector("h3");
-console.log(testimonials.length);
 averageRatingH3.innerText += `: ${averageRating}`;
 
 const createTestimonialForm = document.querySelector("#testimonial form");
@@ -200,6 +197,5 @@ createTestimonialForm.addEventListener("submit", (event) => {
   const name = formData.get("name");
   const email = formData.get("email");
   const company = formData.get("company");
-  console.log(comment);
   createTestimonial.createTestimonial(comment, rating, name, email, company);
 });
